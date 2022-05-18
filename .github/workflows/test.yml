@@ -33,6 +33,7 @@ jobs:
       - name: "test-coverage"
         run: |
           echo "make test-coverage"
+          npm run travis-test
           npm run coverage
 
 
