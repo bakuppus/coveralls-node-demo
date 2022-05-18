@@ -29,10 +29,7 @@ jobs:
           npm run build --if-present
 
 
-      - name: "Lint code"
-        run: |
-          echo "Linting repository"
-          npm run lint
+
 
       - name: "Run audit"
         run: |
