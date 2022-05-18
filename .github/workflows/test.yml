@@ -42,7 +42,7 @@ jobs:
       - name: "make test-coverage"
         run: |
           echo "make test-coverage"
-          make test-coverage
+          npm test-coverage
 
 
       - name: Coveralls
