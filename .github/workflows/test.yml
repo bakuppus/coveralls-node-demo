@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [14.x]
 
     steps:
       - uses: actions/checkout@v3
@@ -26,14 +26,11 @@ jobs:
       - name: "npm build"
         run: |
           echo "npm build"
-          npm run build --if-present
+          npm run compile
+          npm run dist
 
 
-
-
-
-
-      - name: "make test-coverage"
+      - name: "test-coverage"
         run: |
           echo "make test-coverage"
           npm run coverage
