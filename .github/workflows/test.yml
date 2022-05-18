@@ -31,10 +31,7 @@ jobs:
 
 
 
-      - name: "Run audit"
-        run: |
-          echo "Running unit tests"
-          npm audit fix --force
+
 
       - name: "make test-coverage"
         run: |
