@@ -43,4 +43,4 @@ jobs:
       - name: Publish to coveralls.io
         uses: coverallsapp/github-action@v1.1.2
         with:
-          github-token: ${{ git.token }}
+          github-token: ${{ secrets.GIT_TOKEN }}
