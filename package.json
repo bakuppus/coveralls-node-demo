@@ -39,7 +39,7 @@
   },
   "scripts": {
     "lint": "xo",
-    "coverage": "nyc --reporter=lcov ",
+    "coverage": "nyc report  --reporter=lcov ",
     "test": "npm run lint "
   },
   "dependencies": {
