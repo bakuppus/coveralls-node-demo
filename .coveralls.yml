@@ -1,3 +1,0 @@
-repo_token: lMtK7TZJou8hnAAg1hDpJOiVEBxdsHVsE
-COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-github-token: ${{ secrets.GIT_TOKEN }}
