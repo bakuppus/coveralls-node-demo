@@ -1,27 +1,54 @@
-on: ["push", "pull_request"]
+name: CI
 
-name: Test Coveralls
+on:
+  pull_request:
+
 
 jobs:
-
-  build:
-    name: Build
+  test:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
     steps:
-
-      - uses: actions/checkout@v1
-
-      - name: Use Node.js 10.x
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          node-version: 10.x
+          node-version: ${{ matrix.node-version }}
 
-      - name: npm install, make test-coverage
+      - name: "npm install"
         run: |
+          echo "npm install"
           npm install
-          make test-coverage
+
+      - name: "npm build"
+        run: |
+          echo "npm build"
+          npm run build --if-present
+
+
+      - name: "Lint code"
+        run: |
+          echo "Linting repository"
+          npm run lint
+
+      - name: "Run audit"
+        run: |
+          echo "Running unit tests"
+          npm audit
+
+      - name: "Run unit tests"
+        run: |
+          echo "Running unit tests"
+          npm run coverage
+
 
       - name: Coveralls
         uses: coverallsapp/github-action@master
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
         with:
           github-token: ${{ secrets.GIT_TOKEN }}
