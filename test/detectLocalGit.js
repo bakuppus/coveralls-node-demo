@@ -21,12 +21,12 @@ describe('detectLocalGit', () => {
     process.chdir(ORIGINAL_CWD);
   });
 
-  it('should get commit hash from packed-refs when refs/heads/master does not exist', () => {
+  it('should get commit hash from packed-refs when refs/heads/main does not exist', () => {
     const results = detectLocalGit();
     should.exist(results);
     (results).should.deepEqual({
       git_commit: '0000000000000000ffffffffffffffffffffffff',
-      git_branch: 'master'
+      git_branch: 'main'
     });
   });
 });
@@ -41,11 +41,11 @@ function _makeTempGitDir() {
   const HEAD = path.join(dir, 'HEAD');
   const packedRefs = path.join(dir, 'packed-refs');
 
-  fs.writeFileSync(HEAD, 'ref: refs/heads/master');
+  fs.writeFileSync(HEAD, 'ref: refs/heads/main');
   fs.writeFileSync(packedRefs, '' +
 '# pack-refs with: peeled fully-peeled\n' +
 '0000000000000000000000000000000000000000 refs/heads/other/ref\n' +
-'0000000000000000ffffffffffffffffffffffff refs/heads/master\n' +
+'0000000000000000ffffffffffffffffffffffff refs/heads/mainr\n' +
 'ffffffffffffffffffffffffffffffffffffffff refs/remotes/origin/other\n');
 }
 
