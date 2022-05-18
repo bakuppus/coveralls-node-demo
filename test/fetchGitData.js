@@ -174,7 +174,7 @@ describe('fetchGitData', () => {
   });
   it('should execute git commands when a valid commit hash is given', done => {
     process.env.COVERALLS_GIT_COMMIT = 'HEAD';
-    process.env.COVERALLS_GIT_BRANCH = 'master';
+    process.env.COVERALLS_GIT_BRANCH = 'main';
     getOptions((err, options) => {
       should.not.exist(err);
       options = options.git;

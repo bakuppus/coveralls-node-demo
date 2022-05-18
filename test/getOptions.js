@@ -233,10 +233,10 @@ const testGitHashDetection = (sut, done) => {
 
 const testGitBranch = (sut, done) => {
   process.env.COVERALLS_GIT_COMMIT = 'e3e3e3e3e3e3e3e3e';
-  process.env.COVERALLS_GIT_BRANCH = 'master';
+  process.env.COVERALLS_GIT_BRANCH = 'main';
   sut((err, options) => {
     should.not.exist(err);
-    options.git.branch.should.equal('master');
+    options.git.branch.should.equal('main');
     done();
   });
 };
@@ -391,7 +391,7 @@ const testJenkins = (sut, done) => {
   process.env.JENKINS_URL = 'something';
   process.env.BUILD_ID = '1234';
   process.env.GIT_COMMIT = 'a12s2d3df4f435g45g45g67h5g6';
-  process.env.GIT_BRANCH = 'master';
+  process.env.GIT_BRANCH = 'main';
 
   const git = {
     head: {
@@ -402,7 +402,7 @@ const testJenkins = (sut, done) => {
       committer_email: '',
       message: 'Unknown Commit Message'
     },
-    branch: 'master',
+    branch: 'main',
     remotes: []
   };
 
@@ -417,7 +417,7 @@ const testJenkins = (sut, done) => {
 
 const testCircleCi = (sut, done) => {
   process.env.CIRCLECI = true;
-  process.env.CIRCLE_BRANCH = 'master';
+  process.env.CIRCLE_BRANCH = 'main';
   process.env.CIRCLE_WORKFLOW_ID = '1';
   process.env.CIRCLE_BUILD_NUM = '2';
   process.env.CIRCLE_SHA1 = 'e3e3e3e3e3e3e3e3e';
@@ -432,7 +432,7 @@ const testCircleCi = (sut, done) => {
       committer_email: '',
       message: 'Unknown Commit Message'
     },
-    branch: 'master',
+    branch: 'main',
     remotes: []
   };
 
@@ -451,7 +451,7 @@ const testCodeship = (sut, done) => {
   process.env.CI_NAME = 'codeship';
   process.env.CI_BUILD_NUMBER = '1234';
   process.env.CI_COMMIT_ID = 'e3e3e3e3e3e3e3e3e';
-  process.env.CI_BRANCH = 'master';
+  process.env.CI_BRANCH = 'main';
   process.env.CI_COMMITTER_NAME = 'John Doe';
   process.env.CI_COMMITTER_EMAIL = 'jd@example.com';
   process.env.CI_COMMIT_MESSAGE = 'adadadadadadadadadad';
@@ -465,7 +465,7 @@ const testCodeship = (sut, done) => {
       committer_email: 'jd@example.com',
       message: 'adadadadadadadadadad'
     },
-    branch: 'master',
+    branch: 'main',
     remotes: []
   };
 
@@ -482,7 +482,7 @@ const testDrone = (sut, done) => {
   process.env.DRONE = true;
   process.env.DRONE_BUILD_NUMBER = '1234';
   process.env.DRONE_COMMIT = 'e3e3e3e3e3e3e3e3e';
-  process.env.DRONE_BRANCH = 'master';
+  process.env.DRONE_BRANCH = 'main';
   process.env.DRONE_PULL_REQUEST = '3';
   process.env.DRONE_COMMIT_AUTHOR = 'john doe';
   process.env.DRONE_COMMIT_AUTHOR_EMAIL = 'john@doe.com';
@@ -497,7 +497,7 @@ const testDrone = (sut, done) => {
       committer_email: 'john@doe.com',
       message: 'msgmsgmsg'
     },
-    branch: 'master',
+    branch: 'main',
     remotes: []
   };
 
@@ -514,7 +514,7 @@ const testWercker = (sut, done) => {
   process.env.WERCKER = true;
   process.env.WERCKER_BUILD_ID = '1234';
   process.env.WERCKER_GIT_COMMIT = 'e3e3e3e3e3e3e3e3e';
-  process.env.WERCKER_GIT_BRANCH = 'master';
+  process.env.WERCKER_GIT_BRANCH = 'main';
 
   const git = {
     head: {
@@ -525,7 +525,7 @@ const testWercker = (sut, done) => {
       committer_email: '',
       message: 'Unknown Commit Message'
     },
-    branch: 'master',
+    branch: 'main',
     remotes: []
   };
 
@@ -659,7 +659,7 @@ const testSemaphore = (sut, done) => {
   process.env.SEMAPHORE = true;
   process.env.SEMAPHORE_BUILD_NUMBER = '1234';
   process.env.REVISION = 'e3e3e3e3e3e3e3e3e';
-  process.env.BRANCH_NAME = 'master';
+  process.env.BRANCH_NAME = 'main';
 
   const git = {
     head: {
@@ -670,7 +670,7 @@ const testSemaphore = (sut, done) => {
       committer_email: '',
       message: 'Unknown Commit Message'
     },
-    branch: 'master',
+    branch: 'main',
     remotes: []
   };
 

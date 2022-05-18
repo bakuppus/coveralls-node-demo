@@ -27,7 +27,7 @@ describe('convertLcovToCoveralls', () => {
   it('should pass on all appropriate parameters from the environment', done => {
     delete process.env.TRAVIS;
     process.env.COVERALLS_GIT_COMMIT = 'GIT_HASH';
-    process.env.COVERALLS_GIT_BRANCH = 'master';
+    process.env.COVERALLS_GIT_BRANCH = 'main';
     process.env.COVERALLS_SERVICE_NAME = 'SERVICE_NAME';
     process.env.COVERALLS_SERVICE_NUMBER = 'SERVICE_NUMBER';
     process.env.COVERALLS_SERVICE_JOB_ID = 'SERVICE_JOB_ID';
